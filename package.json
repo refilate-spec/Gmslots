@@ -1,0 +1,7 @@
+{
+  "name":"premium-games-store",
+  "version":"1.0.0",
+  "private":true,
+  "scripts":{"build":"node build.mjs"},
+  "devDependencies":{"tailwindcss":"4.1.10"}
+}
