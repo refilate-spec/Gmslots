@@ -1,47 +1,47 @@
+
 <!DOCTYPE html>
-<html lang="hi" class="scroll-smooth">
+<html lang="en" class="dark scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>GameHub Direct | Premium Yono aur Rummy Directory</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Nexus Gaming | Elite Casino & Store</title>
+    <meta name="description" content="Premium gaming and casino store featuring the best slots, live games, and massive bonuses.">
     
-    <!-- SEO & Metadata -->
-    <meta name="description" content="Top-rated Yono, Slots, Teen Patti, aur Rummy apps discover karne ke liye sabse behtareen mobile-friendly directory.">
-    <meta name="theme-color" content="#0a0a0c" media="(prefers-color-scheme: dark)">
-    <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)">
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Tailwind CSS configuration -->
+    <!-- Font Awesome for crisp, reliable icons without JS bloat -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS (Purge-ready via CDN config) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
                     colors: {
                         brand: {
-                            dark: '#0a0a0c',
-                            light: '#f8fafc',
-                            cardDark: 'rgba(20, 20, 25, 0.7)',
-                            cardLight: 'rgba(255, 255, 255, 0.85)',
-                            borderDark: 'rgba(255, 255, 255, 0.08)',
-                            borderLight: 'rgba(0, 0, 0, 0.08)'
+                            bg: '#07090e',
+                            surface: '#0f172a',
+                            cyan: '#06b6d4',
+                            violet: '#8b5cf6',
+                            emerald: '#10b981',
+                            glow: 'rgba(6, 182, 212, 0.5)'
                         }
                     },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
                     animation: {
-                        'float': 'float 6s ease-in-out infinite',
+                        'marquee': 'marquee 25s linear infinite',
+                        'pulse-glow': 'pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                     },
                     keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-6px)' },
+                        marquee: {
+                            '0%': { transform: 'translateX(100%)' },
+                            '100%': { transform: 'translateX(-100%)' }
+                        },
+                        'pulse-glow': {
+                            '0%, 100%': { opacity: 1, boxShadow: '0 0 15px rgba(16, 185, 129, 0.4)' },
+                            '50%': { opacity: .7, boxShadow: '0 0 5px rgba(16, 185, 129, 0.1)' }
                         }
                     }
                 }
@@ -49,349 +49,786 @@
         }
     </script>
 
-    <!-- Custom CSS for Ultra-Clean Minimalist Styling -->
     <style>
+        /* Base optimizations & custom scrollbar */
         body {
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        .glass-panel {
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-        }
-
-        /* Ultra-Clean Sleek Button (Not Stocky) */
-        .btn-sleek {
-            position: relative;
-            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .btn-sleek:hover {
-            transform: translateY(-1px);
-        }
-
-        .btn-sleek:active {
-            transform: translateY(0) scale(0.98);
-        }
-
-        /* Infinite Scrolling Marquee */
-        .marquee-container {
-            display: flex;
-            overflow: hidden;
-            user-select: none;
-            width: 100%;
-            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            background-color: #07090e;
+            -webkit-tap-highlight-color: transparent;
         }
         
-        .marquee-content {
-            display: flex;
-            flex-shrink: 0;
-            animation: scroll-x 25s linear infinite;
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #07090e; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+
+        /* Hide scrollbar for horizontal lists but allow scroll */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Glassmorphism utilities */
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        .glass-header {
+            background: rgba(7, 9, 14, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        @keyframes scroll-x {
-            from { transform: translateX(0); }
-            to { transform: translateX(-100%); }
+        /* Gradient text */
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(to right, #06b6d4, #8b5cf6);
         }
+        .text-gradient-bonus {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(to right, #10b981, #facc15);
+        }
+
+        /* Shimmer effect for images */
+        .skeleton {
+            background: linear-gradient(90deg, #1e293b 25%, #334155 50%, #1e293b 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+        @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
     </style>
-
-    <!-- Theme Init -->
-    <script>
-        (function() {
-            try {
-                var localTheme = localStorage.getItem('theme');
-                var sysTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                if (localTheme === 'dark' || (!localTheme && sysTheme)) document.documentElement.classList.add('dark');
-            } catch (e) {}
-        })();
-    </script>
 </head>
+<body class="text-white antialiased selection:bg-brand-cyan selection:text-white pb-20 md:pb-0">
 
-<body class="bg-brand-light dark:bg-brand-dark text-slate-900 dark:text-slate-100 antialiased selection:bg-emerald-500/20 min-h-screen flex flex-col pb-24 md:pb-0 overflow-x-hidden relative">
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed top-24 left-1/2 -translate-x-1/2 z-[100] flex flex-col gap-2 pointer-events-none"></div>
 
-    <!-- Ambient Glow -->
-    <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
-        <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-emerald-500/5 dark:bg-emerald-500/5 blur-[140px] rounded-full"></div>
-        <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-blue-500/5 dark:bg-blue-600/5 blur-[140px] rounded-full"></div>
-    </div>
-
-    <!-- HEADER -->
-    <header class="fixed top-0 left-0 right-0 z-50 glass-panel bg-white/80 dark:bg-black/80 border-b border-brand-borderLight dark:border-brand-borderDark transition-colors">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <!-- Brand -->
-                <div class="flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
-                    <div class="w-8 h-8 rounded-lg bg-emerald-500 flex items-center justify-center text-white font-bold shadow-sm">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                    </div>
-                    <span class="font-bold text-lg tracking-tight" data-bind="brandName">GameHub</span>
+    <!-- Sticky Glass Header -->
+    <header class="sticky top-0 z-50 glass-header w-full">
+        <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between gap-4">
+            <!-- Logo -->
+            <a href="#" onclick="goHome()" class="flex items-center gap-2 shrink-0 group">
+                <div class="w-8 h-8 rounded bg-gradient-to-br from-brand-cyan to-brand-violet flex items-center justify-center group-hover:shadow-[0_0_15px_rgba(6,182,212,0.5)] transition-all">
+                    <i class="fa-solid fa-gamepad text-white text-sm"></i>
                 </div>
+                <span class="font-bold text-lg tracking-tight hidden sm:block">NEXUS<span class="text-brand-cyan">WIN</span></span>
+            </a>
 
-                <!-- Theme Toggle -->
-                <div class="flex items-center gap-3">
-                    <button id="theme-toggle" class="p-2 rounded-full bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/20 transition-colors">
-                        <svg id="theme-toggle-dark-icon" class="hidden w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4.22 4.22a1 1 0 011.415 0l.708.708a1 1 0 01-1.414 1.414l-.708-.708a1 1 0 010-1.414zm3.78 4.78a1 1 0 110 2h-1a1 1 0 110-2h1zm-2.829 4.95a1 1 0 010 1.415l-.708.708a1 1 0 01-1.414-1.414l.708-.708a1 1 0 011.415 0zm-5.171 1.05a1 1 0 11-2 0v-1a1 1 0 112 0v1zm-4.95-2.829a1 1 0 01-1.415 0l-.708-.708a1 1 0 011.414-1.414l.708.708a1 1 0 010 1.415zM10 5a5 5 0 100 10 5 5 0 000-10z"></path></svg>
-                        <svg id="theme-toggle-light-icon" class="hidden w-4 h-4 text-slate-600" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <!-- Search Engine -->
+            <div class="flex-1 max-w-xl relative">
+                <div class="relative group">
+                    <i class="fa-solid fa-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-brand-cyan transition-colors"></i>
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        placeholder="Search games, categories..." 
+                        class="w-full bg-slate-800/50 border border-slate-700/50 rounded-full py-2 pl-10 pr-10 text-sm focus:outline-none focus:border-brand-cyan/50 focus:ring-1 focus:ring-brand-cyan/50 transition-all placeholder:text-slate-500"
+                        oninput="handleSearch()"
+                    >
+                    <button id="clearSearch" onclick="clearSearchInput()" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white hidden">
+                        <i class="fa-solid fa-times"></i>
                     </button>
                 </div>
+            </div>
+
+            <!-- Header Actions -->
+            <div class="flex items-center gap-3 shrink-0">
+                <button onclick="toggleTheme()" class="w-10 h-10 rounded-full glass-panel flex items-center justify-center hover:scale-105 active:scale-95 transition-transform text-slate-300 hover:text-white aria-label='Toggle Theme'">
+                    <i id="themeIcon" class="fa-solid fa-moon"></i>
+                </button>
+                <button class="px-4 py-2 bg-brand-cyan hover:bg-cyan-400 text-slate-900 font-bold rounded-full text-sm transition-all hover:shadow-[0_0_15px_rgba(6,182,212,0.5)] hidden md:block">
+                    Sign In
+                </button>
             </div>
         </div>
     </header>
 
-    <main class="flex-grow pt-28 pb-12">
-        
-        <!-- HERO SECTION -->
-        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-12 text-center">
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-xs font-medium text-slate-600 dark:text-slate-300 mb-6">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                Verified & Secure Directory
-            </div>
-            <h1 class="text-3xl md:text-5xl font-bold tracking-tight mb-4 leading-tight">
-                Top Gaming Platforms <br class="hidden sm:block"/>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-teal-600 dark:from-emerald-400 dark:to-teal-400">Yahan Discover Karein</span>
-            </h1>
-            <p class="max-w-xl mx-auto text-base text-slate-600 dark:text-slate-400 mb-8 font-normal">
-                Yono, Slots aur Teen Patti apps ke liye fast aur clean directory. Safe external links ke sath.
-            </p>
-        </section>
-
-        <!-- LIVE WITHDRAWAL TICKER -->
-        <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-            <div class="glass-panel bg-white/60 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl py-3 px-4 flex items-center gap-3">
-                <span class="text-[11px] font-semibold tracking-wider uppercase bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 px-2 py-0.5 rounded flex-shrink-0">Live Payouts</span>
-                <div class="overflow-hidden whitespace-nowrap text-xs text-slate-600 dark:text-slate-300 relative w-full">
-                    <div class="inline-block animate-[scroll-x_18s_linear_infinite]">
-                        Rahul ne ₹5,400 Withdraw kiye (Yono Slots) &nbsp;&bull;&nbsp; Amit ne ₹12,000 Withdraw kiye (Teen Patti Master) &nbsp;&bull;&nbsp; Priya ne ₹3,500 Withdraw kiye (Lucky Rummy) &nbsp;&bull;&nbsp;
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- DUAL STORE CARDS (Clean Minimalist Buttons) -->
-        <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                
-                <!-- Card 1: Yono & Slots -->
-                <div class="glass-panel bg-white/80 dark:bg-[#121216]/80 border border-slate-200 dark:border-white/10 rounded-2xl p-6 flex flex-col justify-between shadow-sm">
-                    <div>
-                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold mb-4">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        </div>
-                        <span class="text-[11px] font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Fast Withdrawal</span>
-                        <h2 class="text-xl font-bold mt-1 mb-2 text-slate-900 dark:text-white" data-bind="storeYonoName">Yono & Slots</h2>
-                        <p class="text-sm text-slate-600 dark:text-slate-400 mb-6 font-normal">Sabse popular Yono games aur slots platforms. Instant bank & UPI transfers.</p>
-                    </div>
-
-                    <!-- Clean Minimalist Button -->
-                    <a href="#" data-link="yonoUrl" target="_blank" rel="noopener noreferrer" class="btn-sleek w-full py-3 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-900 font-medium text-sm flex items-center justify-between shadow-sm">
-                        <span data-bind="storeYonoBtn">Yono Store Explore Karein</span>
-                        <svg class="w-4 h-4 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                    </a>
-                </div>
-
-                <!-- Card 2: Teen Patti & Rummy -->
-                <div class="glass-panel bg-white/80 dark:bg-[#121216]/80 border border-slate-200 dark:border-white/10 rounded-2xl p-6 flex flex-col justify-between shadow-sm">
-                    <div>
-                        <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold mb-4">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
-                        </div>
-                        <span class="text-[11px] font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">Classic Games</span>
-                        <h2 class="text-xl font-bold mt-1 mb-2 text-slate-900 dark:text-white" data-bind="storeTeenPattiName">Teen Patti & Rummy</h2>
-                        <p class="text-sm text-slate-600 dark:text-slate-400 mb-6 font-normal">Trusted Teen Patti aur Rummy platforms ki curated clean list.</p>
-                    </div>
-
-                    <!-- Clean Minimalist Button -->
-                    <a href="#" data-link="teenPattiUrl" target="_blank" rel="noopener noreferrer" class="btn-sleek w-full py-3 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-900 font-medium text-sm flex items-center justify-between shadow-sm">
-                        <span data-bind="storeTeenPattiBtn">Teen Patti Explore Karein</span>
-                        <svg class="w-4 h-4 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                    </a>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- WITHDRAWAL PROOF CARDS SCROLLING -->
-        <section class="py-10 bg-white/40 dark:bg-[#101014]/40 border-y border-slate-200 dark:border-white/10 mb-16 overflow-hidden">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
-                <h3 class="text-lg font-bold">Withdrawal Proof Gallery</h3>
-                <p class="text-xs text-slate-500 dark:text-slate-400">Real players dwara verified successful withdrawals.</p>
-            </div>
-            
-            <div class="marquee-container" id="ui-marquee">
-                <!-- Injected via JS -->
-            </div>
-        </section>
-
-        <!-- ARTICLE / GUIDES SECTION -->
-        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-            <div class="mb-8">
-                <h3 class="text-xl font-bold">Gaming Guides & Tips</h3>
-                <p class="text-xs text-slate-500 dark:text-slate-400">Behtar anubhav ke liye mahatvapurna lekh.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Article 1 -->
-                <div class="glass-panel bg-white/70 dark:bg-[#121216]/70 border border-slate-200 dark:border-white/10 rounded-xl p-5 flex flex-col justify-between">
-                    <div>
-                        <span class="text-[10px] font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Guide</span>
-                        <h4 class="text-base font-bold mt-1 mb-2">Instant Bank Transfer Kaise Karein?</h4>
-                        <p class="text-xs text-slate-600 dark:text-slate-400 mb-4">Apne winnings ko direct UPI ya Bank Account mein transfer karne ke asan tareeqe.</p>
-                    </div>
-                    <span class="text-xs font-medium text-emerald-600 dark:text-emerald-400 cursor-pointer hover:underline">Poora Padhein &rarr;</span>
-                </div>
-
-                <!-- Article 2 -->
-                <div class="glass-panel bg-white/70 dark:bg-[#121216]/70 border border-slate-200 dark:border-white/10 rounded-xl p-5 flex flex-col justify-between">
-                    <div>
-                        <span class="text-[10px] font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">Security</span>
-                        <h4 class="text-base font-bold mt-1 mb-2">Fake Apps Se Kaise Bachein?</h4>
-                        <p class="text-xs text-slate-600 dark:text-slate-400 mb-4">Sirf verified links par click karein aur apni personal details secure rakhein.</p>
-                    </div>
-                    <span class="text-xs font-medium text-blue-600 dark:text-blue-400 cursor-pointer hover:underline">Poora Padhein &rarr;</span>
-                </div>
-
-                <!-- Article 3 -->
-                <div class="glass-panel bg-white/70 dark:bg-[#121216]/70 border border-slate-200 dark:border-white/10 rounded-xl p-5 flex flex-col justify-between">
-                    <div>
-                        <span class="text-[10px] font-semibold uppercase tracking-wider text-amber-600 dark:text-amber-400">Rewards</span>
-                        <h4 class="text-base font-bold mt-1 mb-2">Daily Sign-up Bonus Ka Fayda</h4>
-                        <p class="text-xs text-slate-600 dark:text-slate-400 mb-4">Naye users ke liye available special bonuses aur rewards ki poori jankari.</p>
-                    </div>
-                    <span class="text-xs font-medium text-amber-600 dark:text-amber-400 cursor-pointer hover:underline">Poora Padhein &rarr;</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- LEGAL DISCLAIMER -->
-        <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
-            <div class="bg-slate-100 dark:bg-[#121216] border border-slate-200 dark:border-white/10 rounded-xl p-4 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-                <strong>18+ Only. Zaroori Soochna:</strong> Yeh website sirf ek informational directory hai. Hum kisi bhi external game ya app ko operate nahi karte. Bahari platforms par khelne mein financial risk shaamil hai. Kripya zimmedari se khele.
-            </div>
-        </section>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="border-t border-slate-200 dark:border-white/10 bg-white dark:bg-[#0a0a0c] py-6 relative z-10 pb-24 md:pb-6">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-slate-500">
-            <div>&copy; <span id="current-year"></span> <span data-bind="brandName"></span>. Sabhi adhikar surakshit.</div>
-            <div class="flex gap-4">
-                <a href="#" class="hover:underline">Privacy Policy</a>
-                <a href="#" class="hover:underline">Terms of Use</a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- CLEAN MOBILE DOCK -->
-    <div class="md:hidden fixed bottom-3 left-3 right-3 z-50">
-        <div class="glass-panel bg-white/90 dark:bg-[#18181C]/90 border border-slate-200 dark:border-white/10 rounded-xl p-1.5 flex gap-2 shadow-lg">
-            <a href="#" data-link="yonoUrl" class="btn-sleek flex-1 py-2.5 px-3 bg-slate-900 text-white dark:bg-white dark:text-slate-900 rounded-lg text-center font-medium text-xs flex items-center justify-center gap-1.5">
-                <span>Yono Store</span>
-            </a>
-            <a href="#" data-link="teenPattiUrl" class="btn-sleek flex-1 py-2.5 px-3 bg-slate-100 text-slate-800 dark:bg-white/10 dark:text-slate-200 rounded-lg text-center font-medium text-xs flex items-center justify-center gap-1.5">
-                <span>Teen Patti</span>
-            </a>
+    <!-- Scrolling Ticker Bar -->
+    <div class="bg-brand-cyan/10 border-b border-brand-cyan/20 overflow-hidden relative h-8 flex items-center">
+        <div class="whitespace-nowrap animate-marquee flex gap-8 items-center text-xs font-medium px-4 text-cyan-300 w-max">
+            <span>🎉 <strong class="text-white">Jackpot Alert:</strong> Mega Moolah just crossed ₹50,000,000!</span>
+            <span>🔥 <strong class="text-white">New Promo:</strong> Use code NEXUS200 for 200% Welcome Bonus.</span>
+            <span>⚡ <strong class="text-white">Fast Payouts:</strong> Withdrawals processed under 10 minutes.</span>
+            <span>🎰 <strong class="text-white">New Release:</strong> Sweet Bonanza 1000 is now live!</span>
+            <!-- Duplicate for seamless looping -->
+            <span>🎉 <strong class="text-white">Jackpot Alert:</strong> Mega Moolah just crossed ₹50,000,000!</span>
+            <span>🔥 <strong class="text-white">New Promo:</strong> Use code NEXUS200 for 200% Welcome Bonus.</span>
         </div>
     </div>
 
-    <!-- JAVASCRIPT CONFIGURATION -->
+    <!-- MAIN APP CONTAINER -->
+    <main class="max-w-7xl mx-auto px-2 md:px-4 py-4 md:py-6" id="app-container">
+        
+        <!-- ================= HOME VIEW ================= -->
+        <div id="view-home" class="space-y-6 md:space-y-10 animate-fade-in">
+            
+            <!-- Featured Showcase (Hidden if searching) -->
+            <section id="featured-section" class="space-y-3">
+                <h2 class="text-sm md:text-base font-bold text-slate-300 uppercase tracking-wider flex items-center gap-2 px-1">
+                    <i class="fa-solid fa-fire text-brand-cyan"></i> Top Featured
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-5" id="featured-grid">
+                    <!-- Rendered via JS -->
+                </div>
+            </section>
+
+            <!-- Category Tabs -->
+            <section class="sticky top-[96px] z-40 bg-brand-bg/95 backdrop-blur py-2 -mx-2 px-2 md:mx-0 md:px-0">
+                <div class="flex gap-2 overflow-x-auto no-scrollbar pb-1" id="category-tabs">
+                    <!-- Rendered via JS -->
+                </div>
+            </section>
+
+            <!-- Main Catalog Grid -->
+            <section>
+                <div class="flex justify-between items-end mb-4 px-1">
+                    <h2 id="catalog-title" class="text-lg md:text-xl font-bold">All Games <span id="game-count" class="text-slate-500 text-sm font-normal ml-2">(0)</span></h2>
+                </div>
+                
+                <!-- 3 Cols Mobile, 4 Tablet, 6-8 Desktop -->
+                <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 gap-2 md:gap-4" id="main-grid">
+                    <!-- Rendered via JS -->
+                </div>
+
+                <!-- Empty State -->
+                <div id="empty-state" class="hidden flex-col items-center justify-center py-20 text-center">
+                    <div class="w-20 h-20 bg-slate-800/50 rounded-full flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-ghost text-4xl text-slate-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">No games found</h3>
+                    <p class="text-slate-400 text-sm max-w-md">Try adjusting your search or switching categories to find what you're looking for.</p>
+                    <button onclick="clearSearchInput()" class="mt-6 px-6 py-2 glass-panel rounded-full hover:bg-slate-800 transition-colors text-sm">
+                        Clear Search
+                    </button>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= DETAIL VIEW ================= -->
+        <div id="view-detail" class="hidden animate-fade-in pb-10">
+            <!-- Back Navigation -->
+            <button onclick="goHome()" class="mb-4 flex items-center gap-2 text-slate-400 hover:text-white transition-colors px-1 w-fit">
+                <i class="fa-solid fa-arrow-left"></i> <span class="text-sm font-medium">Back to Catalog</span>
+            </button>
+
+            <div class="flex flex-col lg:flex-row gap-6">
+                <!-- Left: Visuals & CTAs -->
+                <div class="w-full lg:w-1/3 flex flex-col gap-4">
+                    <!-- Hero Banner -->
+                    <div class="w-full aspect-[4/3] rounded-2xl overflow-hidden relative border border-white/10 group">
+                        <img id="det-img" src="" alt="Game Artwork" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-bg via-transparent to-transparent opacity-80"></div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <div class="flex gap-2 mb-2" id="det-tags"></div>
+                            <h1 id="det-title" class="text-2xl md:text-3xl font-black leading-tight drop-shadow-md">Game Title</h1>
+                            <p id="det-provider" class="text-slate-300 text-sm font-medium mt-1">Provider Name</p>
+                        </div>
+                    </div>
+
+                    <!-- High-Impact Bonus Showcase -->
+                    <div class="relative w-full rounded-2xl p-[2px] bg-gradient-to-br from-brand-emerald to-facc15 animate-pulse-glow shadow-lg overflow-hidden">
+                        <div class="absolute inset-0 bg-brand-emerald/20 blur-xl"></div>
+                        <div class="relative bg-slate-900 rounded-[14px] p-5 text-center h-full flex flex-col justify-center items-center">
+                            <p class="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-1 flex items-center gap-1">
+                                <i class="fa-solid fa-gift"></i> Exclusive Offer
+                            </p>
+                            <h2 id="det-bonus" class="text-xl md:text-2xl font-black text-gradient-bonus leading-tight">
+                                ₹500 INSTANT BONUS
+                            </h2>
+                        </div>
+                    </div>
+
+                    <!-- Main CTA -->
+                    <a id="det-cta" href="#" target="_blank" rel="noopener noreferrer" class="w-full py-4 bg-gradient-to-r from-brand-cyan to-brand-violet hover:from-cyan-400 hover:to-violet-400 text-white font-bold text-lg rounded-xl flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(139,92,246,0.4)] transition-all hover:scale-[1.02] active:scale-95">
+                        <i class="fa-solid fa-play"></i> PLAY NOW
+                    </a>
+                    
+                    <!-- Secure Note -->
+                    <p class="text-center text-xs text-slate-500 flex items-center justify-center gap-1">
+                        <i class="fa-solid fa-lock text-brand-cyan"></i> 100% Safe & Secure Direct Link
+                    </p>
+                </div>
+
+                <!-- Right: Content & Stats -->
+                <div class="w-full lg:w-2/3 flex flex-col gap-6">
+                    
+                    <!-- Quick Stats Grid -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                        <div class="glass-panel rounded-xl p-3 flex flex-col items-center justify-center text-center">
+                            <i class="fa-solid fa-star text-yellow-400 mb-1 text-lg"></i>
+                            <span id="det-rating" class="font-bold text-sm">4.8 / 5.0</span>
+                            <span id="det-reviews" class="text-[10px] text-slate-400">2,451 Reviews</span>
+                        </div>
+                        <div class="glass-panel rounded-xl p-3 flex flex-col items-center justify-center text-center">
+                            <i class="fa-solid fa-bolt text-brand-cyan mb-1 text-lg"></i>
+                            <span class="font-bold text-sm">Lightning Fast</span>
+                            <span id="det-speed" class="text-[10px] text-slate-400">Payout in 5 mins</span>
+                        </div>
+                        <div class="glass-panel rounded-xl p-3 flex flex-col items-center justify-center text-center col-span-2 sm:col-span-1">
+                            <i class="fa-solid fa-wallet text-brand-violet mb-1 text-lg"></i>
+                            <span class="font-bold text-sm">Min Withdrawal</span>
+                            <span id="det-min-with" class="text-[10px] text-slate-400">₹100 via UPI</span>
+                        </div>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="glass-panel rounded-2xl p-5 md:p-6">
+                        <h3 class="font-bold text-lg mb-3 flex items-center gap-2 border-b border-white/10 pb-2">
+                            <i class="fa-solid fa-circle-info text-brand-cyan"></i> Game Overview
+                        </h3>
+                        <p id="det-desc" class="text-slate-300 text-sm md:text-base leading-relaxed">
+                            Loading description...
+                        </p>
+                    </div>
+
+                    <!-- Social Share -->
+                    <div class="flex items-center gap-3">
+                        <span class="text-sm font-medium text-slate-400">Share with friends:</span>
+                        <button onclick="shareLink('whatsapp')" class="w-10 h-10 rounded-full bg-[#25D366]/10 text-[#25D366] hover:bg-[#25D366] hover:text-white transition-colors flex items-center justify-center">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                        </button>
+                        <button onclick="shareLink('telegram')" class="w-10 h-10 rounded-full bg-[#0088cc]/10 text-[#0088cc] hover:bg-[#0088cc] hover:text-white transition-colors flex items-center justify-center">
+                            <i class="fa-brands fa-telegram text-lg"></i>
+                        </button>
+                        <button onclick="copyToClipboard()" class="w-10 h-10 rounded-full glass-panel hover:bg-slate-700 transition-colors flex items-center justify-center text-slate-300">
+                            <i class="fa-solid fa-link"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Games -->
+            <div class="mt-12">
+                <h3 class="text-lg md:text-xl font-bold mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-layer-group text-brand-violet"></i> Similar Games
+                </h3>
+                <div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-2 md:gap-4" id="related-grid">
+                    <!-- Rendered via JS -->
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Floating Action Buttons -->
+    <div class="fixed bottom-6 right-4 z-50 flex flex-col gap-3">
+        <a href="https://t.me/nexusgaming" target="_blank" class="w-12 h-12 rounded-full bg-[#0088cc] text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+            <i class="fa-brands fa-telegram text-xl"></i>
+        </a>
+        <a href="https://wa.me/1234567890" target="_blank" class="w-12 h-12 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+            <i class="fa-brands fa-whatsapp text-xl"></i>
+        </a>
+    </div>
+
+    <!-- Application Logic -->
     <script>
-        const SITE_CONFIG = {
-            brandName: "GameHub Direct",
-            stores: {
-                yono: {
-                    name: "Yono & Slots Store",
-                    url: "https://example-yono-partner.com",
-                    buttonText: "Yono Store Explore Karein"
-                },
-                teenPatti: {
-                    name: "Teen Patti & Rummy",
-                    url: "https://example-teenpatti-partner.com",
-                    buttonText: "Teen Patti Explore Karein"
-                }
+        /**
+         * CORE DATASET
+         * Embedded zero-bloat game database. Replace images with actual assets.
+         * Using placeholder images with visually pleasing gradients for demo.
+         */
+        const GAMES = [
+            {
+                id: 'g1',
+                title: 'Aviator',
+                provider: 'Spribe',
+                category: 'Crash',
+                tags: ['Crash', 'Multiplayer', 'Fast'],
+                rating: '4.9',
+                reviews: '12.4K',
+                image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=400&q=80',
+                banner: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&q=80',
+                bonus: '100% Welcome + ₹500 Free',
+                minWithdrawal: '₹100',
+                speed: 'Instant (UPI)',
+                url: '#play-aviator',
+                description: 'The legendary crash game that took the world by storm. Bet, watch the multiplier fly, and cash out before the plane flies away! High risk, massive rewards.',
+                featured: true
+            },
+            {
+                id: 'g2',
+                title: 'Lightning Roulette',
+                provider: 'Evolution',
+                category: 'Live Casino',
+                tags: ['Roulette', 'Live Dealer', 'High Roller'],
+                rating: '4.8',
+                reviews: '8.2K',
+                image: 'https://images.unsplash.com/photo-1606167668584-78701c57f13d?w=400&q=80',
+                banner: 'https://images.unsplash.com/photo-1606167668584-78701c57f13d?w=800&q=80',
+                bonus: '₹2000 Live Casino Bonus',
+                minWithdrawal: '₹500',
+                speed: 'Under 15 mins',
+                url: '#play-lightning-roulette',
+                description: 'Experience roulette like never before. Electrifying multipliers up to 500x strike random numbers every round in this stunning live dealer environment.',
+                featured: true
+            },
+            {
+                id: 'g3',
+                title: 'Sweet Bonanza',
+                provider: 'Pragmatic Play',
+                category: 'Slots',
+                tags: ['Candy', 'Bonus Buy', 'Megaways'],
+                rating: '4.7',
+                reviews: '15.1K',
+                image: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&q=80',
+                banner: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=800&q=80',
+                bonus: '200 Free Spins',
+                minWithdrawal: '₹200',
+                speed: 'Instant',
+                url: '#play-sweet-bonanza',
+                description: 'Load up on sugar in this 6x5 pays-anywhere tumbling video slot. The more candies you hit, the more you tumble for huge multipliers in the free spins feature.',
+                featured: true
+            },
+            {
+                id: 'g4',
+                title: 'Crazy Time',
+                provider: 'Evolution',
+                category: 'Live Casino',
+                tags: ['Game Show', 'Live Dealer', 'Wheel'],
+                rating: '4.9',
+                reviews: '22K',
+                image: 'https://images.unsplash.com/photo-1596838132731-3301c3fd4317?w=400&q=80',
+                bonus: '50% Cashback',
+                minWithdrawal: '₹100',
+                speed: 'Instant',
+                url: '#',
+                description: 'The ultimate live game show built on a dream catcher money wheel concept, loaded with bonus games and crazy multipliers.'
+            },
+            {
+                id: 'g5',
+                title: 'Gates of Olympus',
+                provider: 'Pragmatic Play',
+                category: 'Slots',
+                tags: ['Mythology', 'High Volatility'],
+                rating: '4.8',
+                reviews: '18K',
+                image: 'https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=400&q=80',
+                bonus: '₹1000 Deposit Match',
+                minWithdrawal: '₹200',
+                speed: '5 mins',
+                url: '#',
+                description: 'Enter Zeus realm in this 6x5 slot with tumbling reels and multiplying orbs that can boost your wins by up to 500x.'
+            },
+            {
+                id: 'g6',
+                title: 'Teen Patti Live',
+                provider: 'Ezugi',
+                category: 'Card Games',
+                tags: ['Indian', 'Live Dealer', 'Cards'],
+                rating: '4.6',
+                reviews: '9.5K',
+                image: 'https://images.unsplash.com/photo-1511193311914-0346f16efe90?w=400&q=80',
+                bonus: 'Special Indian Bonus',
+                minWithdrawal: '₹100',
+                speed: 'Instant (UPI)',
+                url: '#',
+                description: 'The classic Indian flush game brought to life with a real dealer. Bet on the best 3-card hand and win big.'
+            },
+            {
+                id: 'g7',
+                title: 'Mines',
+                provider: 'Spribe',
+                category: 'Instant Win',
+                tags: ['Casual', 'Fast', 'Crypto'],
+                rating: '4.5',
+                reviews: '5.2K',
+                image: 'https://images.unsplash.com/photo-1614030424754-24d0eec5ce15?w=400&q=80',
+                bonus: 'Free ₹100 No Deposit',
+                minWithdrawal: '₹50',
+                speed: 'Instant',
+                url: '#',
+                description: 'Navigate the minefield. Uncover stars to increase your multiplier, but hit a bomb and lose it all. You control the risk!'
+            },
+            {
+                id: 'g8',
+                title: 'Andar Bahar',
+                provider: 'Ezugi',
+                category: 'Card Games',
+                tags: ['Indian', 'Live Dealer', 'Fast'],
+                rating: '4.7',
+                reviews: '11K',
+                image: 'https://images.unsplash.com/photo-1533206263539-77041a9e9e1c?w=400&q=80',
+                bonus: '₹500 on First Deposit',
+                minWithdrawal: '₹100',
+                speed: 'Instant (UPI)',
+                url: '#',
+                description: 'A pure game of chance. Predict which side (Andar or Bahar) will draw the matching card first.'
+            },
+            {
+                id: 'g9',
+                title: 'Book of Dead',
+                provider: 'Play\'n GO',
+                category: 'Slots',
+                tags: ['Egyptian', 'Classic', 'High Volatility'],
+                rating: '4.8',
+                reviews: '30K',
+                image: 'https://images.unsplash.com/photo-1618519764620-7403abdbdf9a?w=400&q=80',
+                bonus: '100 Free Spins',
+                minWithdrawal: '₹500',
+                speed: '1-2 Hours',
+                url: '#',
+                description: 'Join Rich Wilde on an adventure in Ancient Egypt. Trigger the expanding scatter for monumental payouts.'
+            },
+            {
+                id: 'g10',
+                title: 'Plinko',
+                provider: 'Hacksaw',
+                category: 'Instant Win',
+                tags: ['Arcade', 'Crypto', 'Casual'],
+                rating: '4.6',
+                reviews: '8K',
+                image: 'https://images.unsplash.com/photo-1611996575749-79a3a250f563?w=400&q=80',
+                bonus: 'Daily Cashback 10%',
+                minWithdrawal: '₹100',
+                speed: 'Instant',
+                url: '#',
+                description: 'Drop the ball and watch it bounce down the pegs into a multiplier slot. Simple, addictive, and rewarding.'
+            },
+            {
+                id: 'g11',
+                title: 'Baccarat',
+                provider: 'Evolution',
+                category: 'Live Casino',
+                tags: ['Cards', 'Live Dealer', 'VIP'],
+                rating: '4.5',
+                reviews: '4.1K',
+                image: 'https://images.unsplash.com/photo-1599839619722-39751411ea63?w=400&q=80',
+                bonus: 'VIP Welcome Match',
+                minWithdrawal: '₹1000',
+                speed: 'Instant',
+                url: '#',
+                description: 'The classic high-roller card game. Bet on the Player, Banker, or Tie in this immersive live stream.'
+            },
+            {
+                id: 'g12',
+                title: 'Starburst',
+                provider: 'NetEnt',
+                category: 'Slots',
+                tags: ['Space', 'Low Volatility', 'Classic'],
+                rating: '4.4',
+                reviews: '45K',
+                image: 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=400&q=80',
+                bonus: 'No Deposit Spins',
+                minWithdrawal: '₹200',
+                speed: '24 Hours',
+                url: '#',
+                description: 'The most popular slot of all time. Expanding wilds trigger re-spins for astronomical wins from both sides.'
             }
-        };
+        ];
 
-        document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('current-year').textContent = new Date().getFullYear();
+        const CATEGORIES = ['All Games', 'Slots', 'Live Casino', 'Crash', 'Card Games', 'Instant Win'];
 
-            document.querySelectorAll('[data-bind]').forEach(el => {
-                const key = el.getAttribute('data-bind');
-                if (key === 'brandName') el.textContent = SITE_CONFIG.brandName;
-                if (key === 'storeYonoName') el.textContent = SITE_CONFIG.stores.yono.name;
-                if (key === 'storeYonoBtn') el.textContent = SITE_CONFIG.stores.yono.buttonText;
-                if (key === 'storeTeenPattiName') el.textContent = SITE_CONFIG.stores.teenPatti.name;
-                if (key === 'storeTeenPattiBtn') el.textContent = SITE_CONFIG.stores.teenPatti.buttonText;
-            });
+        // State Management
+        let currentCategory = 'All Games';
+        let searchQuery = '';
+        let currentDetailId = null;
 
-            document.querySelectorAll('[data-link]').forEach(el => {
-                const key = el.getAttribute('data-link');
-                if (key === 'yonoUrl') el.href = SITE_CONFIG.stores.yono.url;
-                if (key === 'teenPattiUrl') el.href = SITE_CONFIG.stores.teenPatti.url;
-            });
+        // DOM Elements
+        const elMainGrid = document.getElementById('main-grid');
+        const elFeaturedGrid = document.getElementById('featured-grid');
+        const elFeaturedSection = document.getElementById('featured-section');
+        const elCategoryTabs = document.getElementById('category-tabs');
+        const elSearchInput = document.getElementById('searchInput');
+        const elClearSearch = document.getElementById('clearSearch');
+        const elEmptyState = document.getElementById('empty-state');
+        const elGameCount = document.getElementById('game-count');
+        const elCatalogTitle = document.getElementById('catalog-title');
+        
+        const viewHome = document.getElementById('view-home');
+        const viewDetail = document.getElementById('view-detail');
 
+        /**
+         * INITIALIZATION
+         */
+        function init() {
+            renderCategories();
+            renderFeatured();
+            filterAndRenderGrid();
             initTheme();
-            initMarquee();
-        });
+            
+            // Scroll to top on reload
+            window.scrollTo(0,0);
+        }
 
-        function initTheme() {
-            const toggleBtn = document.getElementById('theme-toggle');
-            const darkIcon = document.getElementById('theme-toggle-dark-icon');
-            const lightIcon = document.getElementById('theme-toggle-light-icon');
+        /**
+         * RENDER FUNCTIONS
+         */
+        
+        // Render Category Tabs
+        function renderCategories() {
+            elCategoryTabs.innerHTML = CATEGORIES.map(cat => {
+                const isActive = cat === currentCategory;
+                const baseClass = "px-4 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-all border cursor-pointer";
+                const activeClass = "bg-brand-cyan/20 border-brand-cyan text-brand-cyan shadow-[0_0_10px_rgba(6,182,212,0.3)]";
+                const inactiveClass = "bg-slate-800/50 border-white/5 text-slate-400 hover:text-white hover:bg-slate-700/50";
+                
+                return `<button onclick="setCategory('${cat}')" class="${baseClass} ${isActive ? activeClass : inactiveClass}">${cat}</button>`;
+            }).join('');
+        }
 
-            if (document.documentElement.classList.contains('dark')) {
-                darkIcon.classList.remove('hidden');
-            } else {
-                lightIcon.classList.remove('hidden');
+        // Generate a standard game card (dense 3-col mobile structure)
+        function createGameCard(game, isFeatured = false) {
+            const wrapperClass = isFeatured 
+                ? "group relative rounded-xl overflow-hidden cursor-pointer border border-brand-cyan/30 hover:border-brand-cyan transition-all shadow-lg hover:shadow-[0_0_20px_rgba(6,182,212,0.3)] aspect-[4/3] md:aspect-auto md:h-48"
+                : "group relative rounded-xl overflow-hidden glass-panel cursor-pointer hover:border-brand-violet/50 transition-all aspect-square md:aspect-[4/5]";
+            
+            return `
+                <div class="${wrapperClass}" onclick="openDetail('${game.id}')">
+                    <!-- Image -->
+                    <img src="${game.image}" alt="${game.title}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                    
+                    <!-- Overlay Gradient -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/40 to-transparent"></div>
+                    
+                    <!-- Top Badges -->
+                    <div class="absolute top-1.5 left-1.5 right-1.5 flex justify-between items-start">
+                        <span class="px-1.5 py-0.5 rounded text-[8px] md:text-[10px] font-bold bg-slate-900/80 backdrop-blur text-brand-cyan border border-white/10 uppercase">
+                            ${game.category}
+                        </span>
+                        <div class="flex items-center gap-1 bg-slate-900/80 backdrop-blur px-1.5 py-0.5 rounded text-[8px] md:text-[10px] text-yellow-400 font-bold border border-white/10">
+                            <i class="fa-solid fa-star text-[8px]"></i> ${game.rating}
+                        </div>
+                    </div>
+
+                    <!-- Bottom Content -->
+                    <div class="absolute bottom-0 left-0 right-0 p-2 md:p-3">
+                        <h3 class="text-[11px] md:text-sm font-bold text-white truncate leading-tight">${game.title}</h3>
+                        <p class="text-[9px] md:text-xs text-slate-400 truncate mb-1">${game.provider}</p>
+                        
+                        <!-- Bonus Tag (Truncated for small screens) -->
+                        <div class="text-[8px] md:text-[10px] text-emerald-400 font-medium truncate flex items-center gap-1">
+                            <i class="fa-solid fa-gift"></i> ${game.bonus}
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Render Featured Section
+        function renderFeatured() {
+            const featuredGames = GAMES.filter(g => g.featured).slice(0, 3);
+            elFeaturedGrid.innerHTML = featuredGames.map(g => createGameCard(g, true)).join('');
+        }
+
+        // Core Filter Engine
+        function filterAndRenderGrid() {
+            let filtered = GAMES;
+
+            // Apply Category Filter
+            if (currentCategory !== 'All Games') {
+                filtered = filtered.filter(g => g.category === currentCategory);
             }
 
-            toggleBtn.addEventListener('click', () => {
-                document.documentElement.classList.toggle('dark');
-                if (document.documentElement.classList.contains('dark')) {
-                    localStorage.setItem('theme', 'dark');
-                    darkIcon.classList.remove('hidden');
-                    lightIcon.classList.add('hidden');
-                } else {
-                    localStorage.setItem('theme', 'light');
-                    lightIcon.classList.add('hidden');
-                    darkIcon.classList.remove('hidden');
+            // Apply Search Filter
+            if (searchQuery) {
+                const q = searchQuery.toLowerCase();
+                filtered = filtered.filter(g => 
+                    g.title.toLowerCase().includes(q) || 
+                    g.provider.toLowerCase().includes(q) ||
+                    g.tags.some(t => t.toLowerCase().includes(q))
+                );
+            }
+
+            // Update UI
+            elGameCount.innerText = `(${filtered.length})`;
+            
+            if (filtered.length === 0) {
+                elMainGrid.classList.add('hidden');
+                elEmptyState.classList.remove('hidden');
+                elEmptyState.classList.add('flex');
+            } else {
+                elMainGrid.classList.remove('hidden');
+                elEmptyState.classList.add('hidden');
+                elEmptyState.classList.remove('flex');
+                elMainGrid.innerHTML = filtered.map(g => createGameCard(g, false)).join('');
+            }
+        }
+
+        /**
+         * EVENT HANDLERS
+         */
+        
+        function setCategory(cat) {
+            currentCategory = cat;
+            
+            // If searching, keep search but change category context.
+            // Update title to reflect context
+            elCatalogTitle.innerHTML = `${cat} <span id="game-count" class="text-slate-500 text-sm font-normal ml-2"></span>`;
+            
+            renderCategories();
+            filterAndRenderGrid();
+        }
+
+        function handleSearch() {
+            searchQuery = elSearchInput.value.trim();
+            
+            if (searchQuery) {
+                elClearSearch.classList.remove('hidden');
+                elFeaturedSection.classList.add('hidden'); // Hide featured when searching
+            } else {
+                elClearSearch.classList.add('hidden');
+                if (currentCategory === 'All Games') elFeaturedSection.classList.remove('hidden');
+            }
+            
+            filterAndRenderGrid();
+        }
+
+        function clearSearchInput() {
+            elSearchInput.value = '';
+            handleSearch();
+            elSearchInput.focus();
+        }
+
+        /**
+         * ROUTING / VIEW SWITCHING
+         */
+
+        function openDetail(id) {
+            const game = GAMES.find(g => g.id === id);
+            if (!game) return;
+
+            currentDetailId = id;
+
+            // Populate Detail View
+            document.getElementById('det-img').src = game.banner || game.image;
+            document.getElementById('det-title').innerText = game.title;
+            document.getElementById('det-provider').innerText = game.provider;
+            document.getElementById('det-bonus').innerText = game.bonus;
+            document.getElementById('det-rating').innerText = `${game.rating} / 5.0`;
+            document.getElementById('det-reviews').innerText = `${game.reviews} Reviews`;
+            document.getElementById('det-speed').innerText = game.speed;
+            document.getElementById('det-min-with').innerText = game.minWithdrawal;
+            document.getElementById('det-desc').innerText = game.description;
+            document.getElementById('det-cta').href = game.url;
+
+            // Tags
+            document.getElementById('det-tags').innerHTML = game.tags.map(t => 
+                `<span class="px-2 py-1 bg-white/10 backdrop-blur rounded text-xs font-medium text-white border border-white/20">${t}</span>`
+            ).join('');
+
+            // Related Games (Same category, excluding current)
+            const related = GAMES.filter(g => g.category === game.category && g.id !== id).slice(0, 6);
+            if(related.length === 0) {
+                 // Fallback to random games if no related
+                const fallback = GAMES.filter(g => g.id !== id).sort(() => 0.5 - Math.random()).slice(0, 6);
+                document.getElementById('related-grid').innerHTML = fallback.map(g => createGameCard(g)).join('');
+            } else {
+                document.getElementById('related-grid').innerHTML = related.map(g => createGameCard(g)).join('');
+            }
+
+            // Switch Views
+            viewHome.classList.add('hidden');
+            viewDetail.classList.remove('hidden');
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function goHome() {
+            viewDetail.classList.add('hidden');
+            viewHome.classList.remove('hidden');
+            currentDetailId = null;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        /**
+         * UTILITIES
+         */
+
+        // Theme Toggle (Dark Mode default per requirements, but togglable)
+        function initTheme() {
+            const html = document.documentElement;
+            const icon = document.getElementById('themeIcon');
+            // Force dark mode as per elite spec, but allow toggle
+            if (localStorage.theme === 'light') {
+                html.classList.remove('dark');
+                icon.classList.replace('fa-moon', 'fa-sun');
+            } else {
+                html.classList.add('dark');
+                icon.classList.replace('fa-sun', 'fa-moon');
+            }
+        }
+
+        function toggleTheme() {
+            const html = document.documentElement;
+            const icon = document.getElementById('themeIcon');
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.theme = 'light';
+                icon.classList.replace('fa-moon', 'fa-sun');
+            } else {
+                html.classList.add('dark');
+                localStorage.theme = 'dark';
+                icon.classList.replace('fa-sun', 'fa-moon');
+            }
+        }
+
+        // Sharing System
+        function getShareUrl() {
+            // For demo, just returning current URL. In production, append ?game=id
+            return window.location.href;
+        }
+
+        function shareLink(platform) {
+            const url = encodeURIComponent(getShareUrl());
+            const text = encodeURIComponent(`Play ${document.getElementById('det-title').innerText} and get an exclusive bonus!`);
+            
+            if (platform === 'whatsapp') {
+                window.open(`https://api.whatsapp.com/send?text=${text} ${url}`, '_blank');
+            } else if (platform === 'telegram') {
+                window.open(`https://t.me/share/url?url=${url}&text=${text}`, '_blank');
+            }
+        }
+
+        function copyToClipboard() {
+            navigator.clipboard.writeText(getShareUrl()).then(() => {
+                showToast('Link copied to clipboard! 📋');
+            }).catch(err => {
+                // Fallback for older browsers / iframe restrictions
+                const textArea = document.createElement("textarea");
+                textArea.value = getShareUrl();
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    showToast('Link copied to clipboard! 📋');
+                } catch (err) {
+                    showToast('Failed to copy link.');
                 }
+                document.body.removeChild(textArea);
             });
         }
 
-        function initMarquee() {
-            const container = document.getElementById('ui-marquee');
-            const content = document.createElement('div');
-            content.className = 'marquee-content gap-4 px-4';
+        function showToast(msg) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'glass-panel px-4 py-2 rounded-full text-sm font-medium shadow-lg transition-all duration-300 transform translate-y-4 opacity-0 border-brand-cyan/50 text-white';
+            toast.innerText = msg;
             
-            const proofs = [
-                { app: "Yono Slots", amount: "₹4,500", time: "10 mins ago" },
-                { app: "Teen Patti Master", amount: "₹12,000", time: "25 mins ago" },
-                { app: "Rummy Modern", amount: "₹2,800", time: "1 hr ago" },
-                { app: "Yono VIP", amount: "₹15,500", time: "2 hrs ago" }
-            ];
+            container.appendChild(toast);
             
-            for (let i = 0; i < 2; i++) {
-                proofs.forEach(item => {
-                    const card = document.createElement('div');
-                    card.className = 'w-64 rounded-xl glass-panel bg-white/70 dark:bg-white/5 border border-slate-200 dark:border-white/10 p-4 flex flex-col justify-between flex-shrink-0';
-                    card.innerHTML = `
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="text-[11px] font-bold text-slate-500">${item.app}</span>
-                            <span class="px-1.5 py-0.5 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[9px] font-bold rounded">Success</span>
-                        </div>
-                        <div class="flex items-baseline justify-between">
-                            <span class="text-xl font-bold text-slate-900 dark:text-white">${item.amount}</span>
-                            <span class="text-[10px] text-slate-400">${item.time}</span>
-                        </div>
-                    `;
-                    content.appendChild(card);
-                });
-            }
-
-            container.appendChild(content);
+            // Animate in
+            requestAnimationFrame(() => {
+                toast.classList.remove('translate-y-4', 'opacity-0');
+            });
+            
+            // Animate out and remove
+            setTimeout(() => {
+                toast.classList.add('-translate-y-4', 'opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 2500);
         }
+
+        // Run Application
+        document.addEventListener('DOMContentLoaded', init);
+
     </script>
 </body>
 </html>
+
+
