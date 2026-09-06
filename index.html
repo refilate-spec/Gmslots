@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="hi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>GameHub Direct | Premium Yono aur Rummy Directory</title>
+    
+    <!-- SEO & Metadata -->
+    <meta name="description" content="Top-rated Yono, Slots, Teen Patti, aur Rummy apps discover karne ke liye sabse behtareen mobile-friendly directory.">
+    <meta name="theme-color" content="#0a0a0c" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#f8fafc" media="(prefers-color-scheme: light)">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS configuration -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0a0a0c',
+                            light: '#f8fafc',
+                            cardDark: 'rgba(20, 20, 25, 0.7)',
+                            cardLight: 'rgba(255, 255, 255, 0.85)',
+                            borderDark: 'rgba(255, 255, 255, 0.08)',
+                            borderLight: 'rgba(0, 0, 0, 0.08)'
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-6px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS for Ultra-Clean Minimalist Styling -->
+    <style>
+        body {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .glass-panel {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        /* Ultra-Clean Sleek Button (Not Stocky) */
+        .btn-sleek {
+            position: relative;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .btn-sleek:hover {
+            transform: translateY(-1px);
+        }
+
+        .btn-sleek:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        /* Infinite Scrolling Marquee */
+        .marquee-container {
+            display: flex;
+            overflow: hidden;
+            user-select: none;
+            width: 100%;
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+        
+        .marquee-content {
+            display: flex;
+            flex-shrink: 0;
+            animation: scroll-x 25s linear infinite;
+        }
+
+        @keyframes scroll-x {
+            from { transform: translateX(0); }
+            to { transform: translateX(-100%); }
+        }
+    </style>
+
+    <!-- Theme Init -->
+    <script>
+        (function() {
+            try {
+                var localTheme = localStorage.getItem('theme');
+                var sysTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (localTheme === 'dark' || (!localTheme && sysTheme)) document.documentElement.classList.add('dark');
+            } catch (e) {}
+        })();
+    </script>
+</head>
+
+<body class="bg-brand-light dark:bg-brand-dark text-slate-900 dark:text-slate-100 antialiased selection:bg-emerald-500/20 min-h-screen flex flex-col pb-24 md:pb-0 overflow-x-hidden relative">
+
+    <!-- Ambient Glow -->
+    <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
+        <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-emerald-500/5 dark:bg-emerald-500/5 blur-[140px] rounded-full"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-blue-500/5 dark:bg-blue-600/5 blur-[140px] rounded-full"></div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-panel bg-white/80 dark:bg-black/80 border-b border-brand-borderLight dark:border-brand-borderDark transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Brand -->
+                <div class="flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="w-8 h-8 rounded-lg bg-emerald-500 flex items-center justify-center text-white font-bold shadow-sm">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <span class="font-bold text-lg tracking-tight" data-bind="brandName">GameHub</span>
+                </div>
+
+                <!-- Theme Toggle -->
+                <div class="flex items-center gap-3">
+                    <button id="theme-toggle" class="p-2 rounded-full bg-slate-100 dark:bg-white/10 hover:bg-slate-200 dark:hover:bg-white/20 transition-colors">
+                        <svg id="theme-toggle-dark-icon" class="hidden w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4.22 4.22a1 1 0 011.415 0l.708.708a1 1 0 01-1.414 1.414l-.708-.708a1 1 0 010-1.414zm3.78 4.78a1 1 0 110 2h-1a1 1 0 110-2h1zm-2.829 4.95a1 1 0 010 1.415l-.708.708a1 1 0 01-1.414-1.414l.708-.708a1 1 0 011.415 0zm-5.171 1.05a1 1 0 11-2 0v-1a1 1 0 112 0v1zm-4.95-2.829a1 1 0 01-1.415 0l-.708-.708a1 1 0 011.414-1.414l.708.708a1 1 0 010 1.415zM10 5a5 5 0 100 10 5 5 0 000-10z"></path></svg>
+                        <svg id="theme-toggle-light-icon" class="hidden w-4 h-4 text-slate-600" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-28 pb-12">
+        
+        <!-- HERO SECTION -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 pb-12 text-center">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-xs font-medium text-slate-600 dark:text-slate-300 mb-6">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                Verified & Secure Directory
+            </div>
+            <h1 class="text-3xl md:text-5xl font-bold tracking-tight mb-4 leading-tight">
+                Top Gaming Platforms <br class="hidden sm:block"/>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-teal-600 dark:from-emerald-400 dark:to-teal-400">Yahan Discover Karein</span>
+            </h1>
+            <p class="max-w-xl mx-auto text-base text-slate-600 dark:text-slate-400 mb-8 font-normal">
+                Yono, Slots aur Teen Patti apps ke liye fast aur clean directory. Safe external links ke sath.
+            </p>
+        </section>
+
+        <!-- LIVE WITHDRAWAL TICKER -->
+        <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+            <div class="glass-panel bg-white/60 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl py-3 px-4 flex items-center gap-3">
+                <span class="text-[11px] font-semibold tracking-wider uppercase bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 px-2 py-0.5 rounded flex-shrink-0">Live Payouts</span>
+                <div class="overflow-hidden whitespace-nowrap text-xs text-slate-600 dark:text-slate-300 relative w-full">
+                    <div class="inline-block animate-[scroll-x_18s_linear_infinite]">
+                        Rahul ne ₹5,400 Withdraw kiye (Yono Slots) &nbsp;&bull;&nbsp; Amit ne ₹12,000 Withdraw kiye (Teen Patti Master) &nbsp;&bull;&nbsp; Priya ne ₹3,500 Withdraw kiye (Lucky Rummy) &nbsp;&bull;&nbsp;
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DUAL STORE CARDS (Clean Minimalist Buttons) -->
+        <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <!-- Card 1: Yono & Slots -->
+                <div class="glass-panel bg-white/80 dark:bg-[#121216]/80 border border-slate-200 dark:border-white/10 rounded-2xl p-6 flex flex-col justify-between shadow-sm">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <span class="text-[11px] font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Fast Withdrawal</span>
+                        <h2 class="text-xl font-bold mt-1 mb-2 text-slate-900 dark:text-white" data-bind="storeYonoName">Yono & Slots</h2>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 mb-6 font-normal">Sabse popular Yono games aur slots platforms. Instant bank & UPI transfers.</p>
+                    </div>
+
+                    <!-- Clean Minimalist Button -->
+                    <a href="#" data-link="yonoUrl" target="_blank" rel="noopener noreferrer" class="btn-sleek w-full py-3 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-900 font-medium text-sm flex items-center justify-between shadow-sm">
+                        <span data-bind="storeYonoBtn">Yono Store Explore Karein</span>
+                        <svg class="w-4 h-4 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+
+                <!-- Card 2: Teen Patti & Rummy -->
+                <div class="glass-panel bg-white/80 dark:bg-[#121216]/80 border border-slate-200 dark:border-white/10 rounded-2xl p-6 flex flex-col justify-between shadow-sm">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold mb-4">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                        </div>
+                        <span class="text-[11px] font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">Classic Games</span>
+                        <h2 class="text-xl font-bold mt-1 mb-2 text-slate-900 dark:text-white" data-bind="storeTeenPattiName">Teen Patti & Rummy</h2>
+                        <p class="text-sm text-slate-600 dark:text-slate-400 mb-6 font-normal">Trusted Teen Patti aur Rummy platforms ki curated clean list.</p>
+                    </div>
+
+                    <!-- Clean Minimalist Button -->
+                    <a href="#" data-link="teenPattiUrl" target="_blank" rel="noopener noreferrer" class="btn-sleek w-full py-3 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-white dark:hover:bg-slate-100 text-white dark:text-slate-900 font-medium text-sm flex items-center justify-between shadow-sm">
+                        <span data-bind="storeTeenPattiBtn">Teen Patti Explore Karein</span>
+                        <svg class="w-4 h-4 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- WITHDRAWAL PROOF CARDS SCROLLING -->
+        <section class="py-10 bg-white/40 dark:bg-[#101014]/40 border-y border-slate-200 dark:border-white/10 mb-16 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
+                <h3 class="text-lg font-bold">Withdrawal Proof Gallery</h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Real players dwara verified successful withdrawals.</p>
+            </div>
+            
+            <div class="marquee-container" id="ui-marquee">
+                <!-- Injected via JS -->
+            </div>
+        </section>
+
+        <!-- ARTICLE / GUIDES SECTION -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+            <div class="mb-8">
+                <h3 class="text-xl font-bold">Gaming Guides & Tips</h3>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Behtar anubhav ke liye mahatvapurna lekh.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Article 1 -->
+                <div class="glass-panel bg-white/70 dark:bg-[#121216]/70 border border-slate-200 dark:border-white/10 rounded-xl p-5 flex flex-col justify-between">
+                    <div>
+                        <span class="text-[10px] font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Guide</span>
+                        <h4 class="text-base font-bold mt-1 mb-2">Instant Bank Transfer Kaise Karein?</h4>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 mb-4">Apne winnings ko direct UPI ya Bank Account mein transfer karne ke asan tareeqe.</p>
+                    </div>
+                    <span class="text-xs font-medium text-emerald-600 dark:text-emerald-400 cursor-pointer hover:underline">Poora Padhein &rarr;</span>
+                </div>
+
+                <!-- Article 2 -->
+                <div class="glass-panel bg-white/70 dark:bg-[#121216]/70 border border-slate-200 dark:border-white/10 rounded-xl p-5 flex flex-col justify-between">
+                    <div>
+                        <span class="text-[10px] font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">Security</span>
+                        <h4 class="text-base font-bold mt-1 mb-2">Fake Apps Se Kaise Bachein?</h4>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 mb-4">Sirf verified links par click karein aur apni personal details secure rakhein.</p>
+                    </div>
+                    <span class="text-xs font-medium text-blue-600 dark:text-blue-400 cursor-pointer hover:underline">Poora Padhein &rarr;</span>
+                </div>
+
+                <!-- Article 3 -->
+                <div class="glass-panel bg-white/70 dark:bg-[#121216]/70 border border-slate-200 dark:border-white/10 rounded-xl p-5 flex flex-col justify-between">
+                    <div>
+                        <span class="text-[10px] font-semibold uppercase tracking-wider text-amber-600 dark:text-amber-400">Rewards</span>
+                        <h4 class="text-base font-bold mt-1 mb-2">Daily Sign-up Bonus Ka Fayda</h4>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 mb-4">Naye users ke liye available special bonuses aur rewards ki poori jankari.</p>
+                    </div>
+                    <span class="text-xs font-medium text-amber-600 dark:text-amber-400 cursor-pointer hover:underline">Poora Padhein &rarr;</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- LEGAL DISCLAIMER -->
+        <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
+            <div class="bg-slate-100 dark:bg-[#121216] border border-slate-200 dark:border-white/10 rounded-xl p-4 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                <strong>18+ Only. Zaroori Soochna:</strong> Yeh website sirf ek informational directory hai. Hum kisi bhi external game ya app ko operate nahi karte. Bahari platforms par khelne mein financial risk shaamil hai. Kripya zimmedari se khele.
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-200 dark:border-white/10 bg-white dark:bg-[#0a0a0c] py-6 relative z-10 pb-24 md:pb-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-slate-500">
+            <div>&copy; <span id="current-year"></span> <span data-bind="brandName"></span>. Sabhi adhikar surakshit.</div>
+            <div class="flex gap-4">
+                <a href="#" class="hover:underline">Privacy Policy</a>
+                <a href="#" class="hover:underline">Terms of Use</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CLEAN MOBILE DOCK -->
+    <div class="md:hidden fixed bottom-3 left-3 right-3 z-50">
+        <div class="glass-panel bg-white/90 dark:bg-[#18181C]/90 border border-slate-200 dark:border-white/10 rounded-xl p-1.5 flex gap-2 shadow-lg">
+            <a href="#" data-link="yonoUrl" class="btn-sleek flex-1 py-2.5 px-3 bg-slate-900 text-white dark:bg-white dark:text-slate-900 rounded-lg text-center font-medium text-xs flex items-center justify-center gap-1.5">
+                <span>Yono Store</span>
+            </a>
+            <a href="#" data-link="teenPattiUrl" class="btn-sleek flex-1 py-2.5 px-3 bg-slate-100 text-slate-800 dark:bg-white/10 dark:text-slate-200 rounded-lg text-center font-medium text-xs flex items-center justify-center gap-1.5">
+                <span>Teen Patti</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT CONFIGURATION -->
+    <script>
+        const SITE_CONFIG = {
+            brandName: "GameHub Direct",
+            stores: {
+                yono: {
+                    name: "Yono & Slots Store",
+                    url: "https://example-yono-partner.com",
+                    buttonText: "Yono Store Explore Karein"
+                },
+                teenPatti: {
+                    name: "Teen Patti & Rummy",
+                    url: "https://example-teenpatti-partner.com",
+                    buttonText: "Teen Patti Explore Karein"
+                }
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            document.querySelectorAll('[data-bind]').forEach(el => {
+                const key = el.getAttribute('data-bind');
+                if (key === 'brandName') el.textContent = SITE_CONFIG.brandName;
+                if (key === 'storeYonoName') el.textContent = SITE_CONFIG.stores.yono.name;
+                if (key === 'storeYonoBtn') el.textContent = SITE_CONFIG.stores.yono.buttonText;
+                if (key === 'storeTeenPattiName') el.textContent = SITE_CONFIG.stores.teenPatti.name;
+                if (key === 'storeTeenPattiBtn') el.textContent = SITE_CONFIG.stores.teenPatti.buttonText;
+            });
+
+            document.querySelectorAll('[data-link]').forEach(el => {
+                const key = el.getAttribute('data-link');
+                if (key === 'yonoUrl') el.href = SITE_CONFIG.stores.yono.url;
+                if (key === 'teenPattiUrl') el.href = SITE_CONFIG.stores.teenPatti.url;
+            });
+
+            initTheme();
+            initMarquee();
+        });
+
+        function initTheme() {
+            const toggleBtn = document.getElementById('theme-toggle');
+            const darkIcon = document.getElementById('theme-toggle-dark-icon');
+            const lightIcon = document.getElementById('theme-toggle-light-icon');
+
+            if (document.documentElement.classList.contains('dark')) {
+                darkIcon.classList.remove('hidden');
+            } else {
+                lightIcon.classList.remove('hidden');
+            }
+
+            toggleBtn.addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark');
+                if (document.documentElement.classList.contains('dark')) {
+                    localStorage.setItem('theme', 'dark');
+                    darkIcon.classList.remove('hidden');
+                    lightIcon.classList.add('hidden');
+                } else {
+                    localStorage.setItem('theme', 'light');
+                    lightIcon.classList.add('hidden');
+                    darkIcon.classList.remove('hidden');
+                }
+            });
+        }
+
+        function initMarquee() {
+            const container = document.getElementById('ui-marquee');
+            const content = document.createElement('div');
+            content.className = 'marquee-content gap-4 px-4';
+            
+            const proofs = [
+                { app: "Yono Slots", amount: "₹4,500", time: "10 mins ago" },
+                { app: "Teen Patti Master", amount: "₹12,000", time: "25 mins ago" },
+                { app: "Rummy Modern", amount: "₹2,800", time: "1 hr ago" },
+                { app: "Yono VIP", amount: "₹15,500", time: "2 hrs ago" }
+            ];
+            
+            for (let i = 0; i < 2; i++) {
+                proofs.forEach(item => {
+                    const card = document.createElement('div');
+                    card.className = 'w-64 rounded-xl glass-panel bg-white/70 dark:bg-white/5 border border-slate-200 dark:border-white/10 p-4 flex flex-col justify-between flex-shrink-0';
+                    card.innerHTML = `
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-[11px] font-bold text-slate-500">${item.app}</span>
+                            <span class="px-1.5 py-0.5 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[9px] font-bold rounded">Success</span>
+                        </div>
+                        <div class="flex items-baseline justify-between">
+                            <span class="text-xl font-bold text-slate-900 dark:text-white">${item.amount}</span>
+                            <span class="text-[10px] text-slate-400">${item.time}</span>
+                        </div>
+                    `;
+                    content.appendChild(card);
+                });
+            }
+
+            container.appendChild(content);
+        }
+    </script>
+</body>
+</html>
