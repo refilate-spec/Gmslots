@@ -293,6 +293,21 @@
       startTickerUpdates();
     }
 
+    
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
+
+if (id) {
+  const apk = window.GAME_STORE_DATA?.find(
+    item => String(item.id) === String(id)
+  );
+
+  if (apk) {
+    switchView('apk', apk.id);
+  }
+}
+
+    
     function filterCategory(catId) {
       currentCategoryFilter = catId;
       renderHomeView(document.getElementById('appContainer'));
