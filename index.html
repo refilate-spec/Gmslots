@@ -403,21 +403,28 @@
         </main>
       `;
     }
-
-    function renderApkDetailView(container, apkId) {
+function renderApkDetailView(container, apkId) {
   const apk = window.GAME_STORE_DATA.find(
     a => String(a.id) === String(apkId)
   );
 
   if (!apk) return;
 
-  const shareUrl = encodeURIComponent(
-    `${window.location.origin}${window.location.pathname}?id=${apk.id}`
-  );
+  // Update browser URL when modal/post opens
+  const postUrl = new URL(window.location.href);
+  postUrl.searchParams.set("id", apk.id);
+
+  history.replaceState(null, "", postUrl.href);
+
+  // Share / Copy URL
+  const shareUrl = encodeURIComponent(postUrl.href);
 
   const shareText = encodeURIComponent(
     `Check out ${apk.name} on AGS Empire! Get ${apk.bonus} signup bonus and instant payouts.`
   );
+
+  // ↓↓↓ tumhara existing code exactly yahan se continue
+    
 
   // YAHAN SE TUMHARA EXISTING POST DETAIL HTML CODE CONTINUE HOGA
 
